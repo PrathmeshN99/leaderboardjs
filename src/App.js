@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import BasicTable from "./components/BasicTable";
+import "./App.css";
+import LoginSignup from "./components/LoginSignup";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      {/* <Header siteTitle="SLACK SSO" /> */}
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<BasicTable />} />
+        </Routes>
+      </main>
+    </Router>
   );
 }
+
+const Home = () => {
+  return (
+    <div>
+      <LoginSignup />
+    </div>
+  );
+};
 
 export default App;
